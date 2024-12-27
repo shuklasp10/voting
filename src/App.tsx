@@ -9,16 +9,16 @@ import VoteForm from './VoteForm'
 function App() {
   const [pollData, setPollData] = useState<Poll>(poll)
   const [viewWinner, setViewWinner] = useState<boolean>(false)
-  const [viewForm, setViewForm] = useState<boolean>(true)
+  const [viewForm, setViewForm] = useState<boolean>(false)
 
   function onVote(id: number): void {
-    let newOptions = [...pollData.options]
+    let newOptions:Options[] = [...pollData.options]
     newOptions[id].votes += 1
     setPollData({ ...pollData, options: newOptions });
   }
   
   function onReset(): void {
-    let newOptions = [...pollData.options]
+    let newOptions:Options[] = [...pollData.options]
     newOptions[0].votes = 0
     newOptions[1].votes = 0
     setPollData({ ...pollData, options: newOptions });
